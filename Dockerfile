@@ -2,9 +2,11 @@ FROM python:3.8-buster
 
 ENV FLASK_APP=app.py
 
+RUN mkdir -p /srv/app
+
 WORKDIR /srv/app
 
-COPY requirements.txt /srv/app/requirements
+COPY requirements.txt /srv/app/requirements.txt
 
 RUN python3 -m pip install --no-cache-dir \
     -r /srv/app/requirements.txt
