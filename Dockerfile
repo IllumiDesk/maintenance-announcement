@@ -11,6 +11,8 @@ RUN python3 -m pip install --no-cache-dir \
 
 EXPOSE 8000
 
+COPY app.py /srv/app/app.py
+
 CMD ["flask", "run", "--host=0.0.0.0", "--port=8000"]
 
 HEALTHCHECK CMD curl --fail http://localhost:8000/config || exit 1
